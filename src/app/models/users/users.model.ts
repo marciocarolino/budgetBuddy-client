@@ -1,2 +1,7 @@
-export class Users {
+export class UsersModel {
+  id?: any;
+  name?: string;
+  email?: string;
+  actived?: boolean;
+  password?: string;
 }

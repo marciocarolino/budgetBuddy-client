@@ -1,1 +1,37 @@
-<p>users works!</p>
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <label for="title">Cadastro Usuários</label>
+      <br /><br /><br /><br /><br /><br /><br /><br />
+
+      <label for="title">Usuário</label>
+      <input
+        type="text"
+        id="name"
+        required
+        pInputText
+        [(ngModel)]="users.name"
+        name="name"
+      />
+      <br />
+      <br />
+      <label for="title">Email</label>
+      <input
+        type="text"
+        id="email"
+        required
+        pInputText
+        [(ngModel)]="users.email"
+        name="name"
+      />
+
+      <br /><br /><br /><br /><br />
+      <button (click)="saveUser()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newUser()">Add</button>
+    </div>
+  </div>
+</div>
