@@ -16,11 +16,14 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(
+    const newLogin = this.http.post(
       `${this.apiURL}/auth/login`,
       { username, password },
 
       this.httpOptions
     );
+
+    console.log('LOGIN.: ' + JSON.stringify(newLogin));
+    return newLogin;
   }
 }
