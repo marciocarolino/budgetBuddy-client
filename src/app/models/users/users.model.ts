@@ -4,4 +4,6 @@ export class UsersModel {
   email?: string;
   actived?: boolean;
   password?: string;
+  login?: string;
+  role?: string;
 }

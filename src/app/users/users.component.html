@@ -1,37 +1,64 @@
-<div>
-  <div class="submit-form">
-    <div *ngIf="!submitted">
-      <label for="title">Cadastro Usuários</label>
-      <br /><br /><br /><br /><br /><br /><br /><br />
+<!--  Formulário para Cadastrar novo usuário do sistema -->
 
-      <label for="title">Usuário</label>
-      <input
-        type="text"
-        id="name"
+<div class="formgrid grid">
+  <div class="field col-6">
+    <label for="email">Nome</label>
+    <input
+      type="text"
+      id="name"
+      required
+      [(ngModel)]="users.name"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field col-6">
+    <label for="email">E-mail</label>
+    <input
+      type="text"
+      required
+      [(ngModel)]="users.email"
+      id="email"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field cold-6">
+    <label for="login">Login</label>
+    <input
+      type="text"
+      required
+      [(ngModel)]="users.login"
+      id="login"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="field cold-6">
+    <label for="password">Senha</label>
+    <input
+      type="password"
+      required
+      [(ngModel)]="users.password"
+      id="password"
+      class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+
+  <div class="col-6">
+    <div class="field col-12 md:col-3">
+      <label for="role">Permissão</label>
+      <select
         required
-        pInputText
-        [(ngModel)]="users.name"
-        name="name"
-      />
-      <br />
-      <br />
-      <label for="title">Email</label>
-      <input
-        type="text"
-        id="email"
-        required
-        pInputText
-        [(ngModel)]="users.email"
-        name="name"
-      />
-
-      <br /><br /><br /><br /><br />
-      <button (click)="saveUser()" class="btn btn-success">Submit</button>
-    </div>
-
-    <div *ngIf="submitted">
-      <h4>Tutorial was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newUser()">Add</button>
+        [(ngModel)]="users.role"
+        id="role"
+        class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary"
+        style="appearance: auto"
+      >
+        <option value="ADMIN">Administrador</option>
+        <option value="USER">Usuário</option>
+      </select>
     </div>
   </div>
+  <button (click)="saveUser()" class="btn btn-success">Submit</button>
 </div>

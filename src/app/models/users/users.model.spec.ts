@@ -1,7 +1,7 @@
-import { Users } from './users.model';
+import { UsersModel } from './users.model';
 
 describe('Users', () => {
   it('should create an instance', () => {
-    expect(new Users()).toBeTruthy();
+    expect(new UsersModel()).toBeTruthy();
   });
 });

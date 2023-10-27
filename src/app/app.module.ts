@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { FormsModule } from '@angular/forms';
@@ -14,8 +14,17 @@ import { ButtonModule } from 'primeng/button';
 
 import { ListUsersComponent } from './users/list-users/list-users.component';
 
+import { AuthComponent } from './auth/auth/auth.component';
+import { ProfileComponent } from './profile/profile/profile.component';
+
 @NgModule({
-  declarations: [AppComponent, UsersComponent, ListUsersComponent],
+  declarations: [
+    AppComponent,
+    UsersComponent,
+    ListUsersComponent,
+    AuthComponent,
+    ProfileComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
