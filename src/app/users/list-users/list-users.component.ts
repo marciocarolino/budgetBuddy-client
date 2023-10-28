@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersModel } from 'src/app/models/users/users.model';
+import { StorageService } from 'src/app/services/storage/storage.service';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class ListUsersComponent implements OnInit {
   currentUsers: UsersModel = {};
   currentIndex = -1;
 
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit(): void {
     this.retriveUsers();
@@ -22,7 +26,6 @@ export class ListUsersComponent implements OnInit {
     const newResult = this.userService.getAll().subscribe({
       next: (data) => {
         this.users = data;
-        console.log(data);
       },
       error: (e) => console.error(e),
     });

@@ -1,29 +1,27 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { apiUrl } from 'src/app/config/config';
+// import { apiUrl } from 'src/app/config/config';
+
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//     'Content-Type': 'application/json',
+//   }),
+// };
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiURL = apiUrl;
-
-  private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type:': 'application/json' }),
-  };
-
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
-    const newLogin = this.http.post(
-      `${this.apiURL}/auth/login`,
-      { username, password },
+  private apiURL = 'api';
 
-      this.httpOptions
-    );
+  authLogin(login: string, password: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    console.log('LOGIN.: ' + JSON.stringify(newLogin));
-    return newLogin;
+    const httpOptions = { headers: headers };
+
+    return this.http.post('api/auth/login', { login, password }, httpOptions);
   }
 }

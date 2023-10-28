@@ -16,6 +16,8 @@ import { ListUsersComponent } from './users/list-users/list-users.component';
 
 import { AuthComponent } from './auth/auth/auth.component';
 import { ProfileComponent } from './profile/profile/profile.component';
+import { httpInterceptorProviders } from 'src/_helpers/http.interceptor';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ProfileComponent } from './profile/profile/profile.component';
     ListUsersComponent,
     AuthComponent,
     ProfileComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { ProfileComponent } from './profile/profile/profile.component';
     ToolbarModule,
     ButtonModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

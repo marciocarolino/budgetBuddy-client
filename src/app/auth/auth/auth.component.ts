@@ -33,11 +33,9 @@ export class AuthComponent implements OnInit {
   onSubmit(): void {
     const { username, password } = this.form;
 
-    const newResult = this.authService.login(username, password).subscribe({
+    this.authService.authLogin(username, password).subscribe({
       next: (data) => {
         this.storageService.saveUser(data);
-
-        console.log('MEIO', this.storageService.saveUser(data));
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
@@ -45,13 +43,12 @@ export class AuthComponent implements OnInit {
         this.reloadPage();
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
-        this.isLoggedIn = true;
+        this.errorMessage = err.error;
+        console.log((this.errorMessage = err.error));
+        this.isLoginFailed = true;
       },
     });
-    console.log('RESULT ' + JSON.stringify(newResult));
   }
-
   reloadPage(): void {
     window.location.reload();
   }
