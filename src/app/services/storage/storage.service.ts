@@ -20,6 +20,7 @@ export class StorageService {
     const user = window.sessionStorage.getItem(USER_KEY);
 
     if (user) {
+      console.log('AQUI --> ' + JSON.stringify(user));
       return JSON.parse(user);
     }
     return {};

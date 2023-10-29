@@ -3,7 +3,9 @@ const PROXY_CONFIG = [
     context: ['/api'],
     target: ' http://localhost:8080',
     secure: false,
-    pathRewrite: { '^/api': '' }
+    pathRewrite: { '^/api': '' },
+    changeOrigin: true,
+    logLevel: 'debug'
   }
 ];
 

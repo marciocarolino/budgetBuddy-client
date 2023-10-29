@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 // import { apiUrl } from 'src/app/config/config';
@@ -13,7 +13,14 @@ export class UsersService {
   private apiURL = 'api';
 
   getAll(): Observable<UsersModel[]> {
-    return this.http.get<UsersModel[]>(`${this.apiURL}/users`);
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6Im1hcmNpb2Nhcm9saW5vMDFAZ21haWwuY29tIiwiZXhwIjoxNjk4NTE1NjYyfQ.UjOKcezQDKzEaKLj--JRyQTVNFtxQXipkLA97rdViRs';
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<UsersModel[]>(`${this.apiURL}/users`, { headers });
   }
 
   createUser(data: any): Observable<any> {

@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
+      this.roles = this.storageService.getUser().role;
     }
   }
 
@@ -39,7 +39,9 @@ export class AuthComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
+        console.log('ROLES ' + this.storageService.getUser().roles);
+        this.roles = this.storageService.getUser().role;
+        console.log('DATA ' + data);
         this.reloadPage();
       },
       error: (err) => {

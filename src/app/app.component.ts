@@ -24,9 +24,9 @@ export class AppComponent {
 
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
-      this.roles = user.roles;
+      this.roles = user.role;
 
-      // this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       // this.showModeratorBoard = this.roles.includes('ROLE_USER');
 
       this.username = user.username;
